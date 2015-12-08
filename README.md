@@ -1,4 +1,4 @@
-# IP Messaging Starter Application for iOS, using Swift
+# Improving the UX of the Swift IPM Quickstart
 
 ## License
 
