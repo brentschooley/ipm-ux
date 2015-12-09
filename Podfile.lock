@@ -1,10 +1,13 @@
 PODS:
   - SlackTextViewController (1.7.2)
+  - SnapKit (0.18.0)
 
 DEPENDENCIES:
   - SlackTextViewController
+  - SnapKit
 
 SPEC CHECKSUMS:
   SlackTextViewController: 1f4e8f68c156ef93de73fd422db2b8d5d5b0f4e7
+  SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
 
 COCOAPODS: 0.39.0

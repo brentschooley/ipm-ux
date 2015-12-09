@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		789B38371C17C2C600D1FA2A /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789B38361C17C2C600D1FA2A /* MessageTableViewCell.swift */; };
 		8B094C841C0F920C0030E78F /* TwilioIPMessagingClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B094C831C0F920C0030E78F /* TwilioIPMessagingClient.framework */; };
 		8B094C861C0F92D20030E78F /* TwilioCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B094C851C0F92D20030E78F /* TwilioCommon.framework */; };
 		8B0FF2851C0B9B5C00DA81C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0FF2841C0B9B5C00DA81C6 /* AppDelegate.swift */; };
@@ -97,6 +98,7 @@
 /* Begin PBXFileReference section */
 		601A7E1390A6992FE133A98D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		75226A40304644162618DC24 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		789B38361C17C2C600D1FA2A /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		8B094C831C0F920C0030E78F /* TwilioIPMessagingClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwilioIPMessagingClient.framework; sourceTree = "<group>"; };
 		8B094C851C0F92D20030E78F /* TwilioCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwilioCommon.framework; sourceTree = "<group>"; };
 		8B0FF2811C0B9B5C00DA81C6 /* IPMQuickstart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPMQuickstart.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +172,7 @@
 				8B0FF2901C0B9B5C00DA81C6 /* Info.plist */,
 				8BDE9FDE1C0B9F3F00E94E27 /* IPMQuickstart-Bridging-Header.h */,
 				8BDE9FFC1C0C1B8400E94E27 /* SwiftyJSON.swift */,
+				789B38361C17C2C600D1FA2A /* MessageTableViewCell.swift */,
 			);
 			path = IPMQuickstart;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BDE9FFD1C0C1B8400E94E27 /* SwiftyJSON.swift in Sources */,
+				789B38371C17C2C600D1FA2A /* MessageTableViewCell.swift in Sources */,
 				8B0FF2871C0B9B5C00DA81C6 /* ViewController.swift in Sources */,
 				8B0FF2851C0B9B5C00DA81C6 /* AppDelegate.swift in Sources */,
 			);

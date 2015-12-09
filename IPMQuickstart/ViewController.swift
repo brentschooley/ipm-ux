@@ -72,6 +72,8 @@ class ViewController: SLKTextViewController {
     self.tableView.rowHeight = UITableViewAutomaticDimension
     self.tableView.estimatedRowHeight = 66.0
     self.tableView.separatorStyle = .None
+    self.tableView.registerClass(MessageTableViewCell.self, forCellReuseIdentifier: "MessageTableViewCell")
+    self.inverted = false
   }
   
   // MARK: Setup IP Messaging Channel
@@ -134,21 +136,35 @@ class ViewController: SLKTextViewController {
   }
   
   // Create table view rows
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
-    -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath)
-      let message = self.messages[indexPath.row]
-      
-      // Set table cell values
-      cell.detailTextLabel?.text = message.author
-      cell.textLabel?.text = message.body
-      cell.selectionStyle = .None
-      return cell
+  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier("MessageTableViewCell", forIndexPath: indexPath) as! MessageTableViewCell
+    
+    let message = self.messages[indexPath.row]
+    
+    cell.nameLabel.text = message.author
+    cell.bodyLabel.text = message.body
+    cell.selectionStyle = .None
+    
+    return cell
   }
   
   // MARK: UITableViewDataSource Delegate
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 1
+  }
+  
+  override func didPressRightButton(sender: AnyObject!) {
+    self.textView.refreshFirstResponder()
+    
+    let message = self.generalChannel?.messages.createMessageWithBody(self.textView.text)
+    self.generalChannel?.messages.sendMessage(message){
+      (result) -> Void in
+      if result != .Success {
+        print("Error sending message")
+      } else {
+        self.textView.text = ""
+      }
+    }
   }
 }
 
@@ -162,5 +178,17 @@ extension ViewController: TwilioIPMessagingClientDelegate {
   
   func ipMessagingClient(client: TwilioIPMessagingClient!, channelHistoryLoaded channel: TWMChannel!) {
     self.loadMessages()
+  }
+  
+  func ipMessagingClient(client: TwilioIPMessagingClient!, typingStartedOnChannel channel: TWMChannel!, member: TWMMember!) {
+    self.typingIndicatorView.insertUsername(member.identity())
+  }
+  
+  func ipMessagingClient(client: TwilioIPMessagingClient!, typingEndedOnChannel channel: TWMChannel!, member: TWMMember!) {
+    self.typingIndicatorView.removeUsername(member.identity())
+  }
+  
+  override func textViewDidChange(textView: UITextView) {
+    self.generalChannel?.typing()
   }
 }
